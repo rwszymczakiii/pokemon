@@ -1,0 +1,52 @@
+DROP TABLE pokemon;
+DROP TABLE trainer;
+DROP TABLE moves;
+
+CREATE TABLE pokemon ( 
+    pokemonId INT AUTO_INCREMENT,
+    name VARCHAR(20) NOT NULL,
+    type VARCHAR(10) NOT NULL,
+    health INT NOT NULL,
+    attack INT NOT NULL,
+    defense INT NOT NULL,
+    speed INT NOT NULL,
+    move1 VARCHAR(10),
+    move2 VARCHAR(10),
+    PRIMARY KEY(pokemonId)
+
+);
+
+CREATE TABLE trainer (
+    trainerId INT AUTO_INCREMENT,
+    type VARCHAR(10),
+    name VARCHAR(10) NOT NULL,
+    gender VARCHAR(1),
+    money INT,
+    pokemon INT,
+    PRIMARY KEY (trainerId)
+
+);
+
+CREATE TABLE moves (
+    name VARCHAR(10) PRIMARY KEY,
+    type VARCHAR(10) NOT NULL,
+    accuracy INT NOT NULL,
+    damage INT NOT NULL,
+    critChance INT
+
+);
+
+ALTER TABLE pokemon
+ADD FOREIGN KEY (move1)
+REFERENCES moves(name)
+ON DELETE SET NULL;
+
+ALTER TABLE pokemon
+ADD FOREIGN KEY (move2)
+REFERENCES moves(name)
+ON DELETE SET NULL;
+
+ALTER TABLE trainer
+ADD FOREIGN KEY (pokemon)
+REFERENCES pokemon(pokemonId)
+ON DELETE SET NULL;
