@@ -10,8 +10,8 @@ CREATE TABLE pokemon (
     attack INT NOT NULL,
     defense INT NOT NULL,
     speed INT NOT NULL,
-    move1 VARCHAR(10),
-    move2 VARCHAR(10),
+    ability1 VARCHAR(10),
+    ability2 VARCHAR(10),
     PRIMARY KEY(pokemonId)
 
 );
@@ -27,7 +27,7 @@ CREATE TABLE trainer (
 
 );
 
-CREATE TABLE moves (
+CREATE TABLE abilities (
     name VARCHAR(10) PRIMARY KEY,
     type VARCHAR(10) NOT NULL,
     accuracy INT NOT NULL,
@@ -37,13 +37,13 @@ CREATE TABLE moves (
 );
 
 ALTER TABLE pokemon
-ADD FOREIGN KEY (move1)
-REFERENCES moves(name)
+ADD FOREIGN KEY (ability1)
+REFERENCES abilities(name)
 ON DELETE SET NULL;
 
 ALTER TABLE pokemon
-ADD FOREIGN KEY (move2)
-REFERENCES moves(name)
+ADD FOREIGN KEY (ability2)
+REFERENCES abilities(name)
 ON DELETE SET NULL;
 
 ALTER TABLE trainer

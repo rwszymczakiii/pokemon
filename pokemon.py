@@ -7,28 +7,27 @@ Created on Sun Jun 23 20:48:23 2019
 
 import random
 
-gen1_pokemon = {
-    1:'bulbasaur', 2:'ivysaur', 3:'venusaur',
-    4:'charmander', 5:'charmeleon', 6:'charizard',
-    7:'squirtle', 8:'wartortle', 9:'blastoise'                       
+pokemon = {
+    1:"Farfetch'd", 2:"Onix", 3:"Hitmonlee", 4:"Hitmonchan", 5:"Lickitung", 
+    6:"Chansey", 7:"Tangela", 8:"Kangaskhan", 9:"Mr. Mime", 10: "Scyther", 
+    11: "Jynx", 12: "Electabuzz", 13: "Magmar", 14: "Pinsir", 15: "Tauros",
+    16: "Lapras", 17: "Porygon", 18: "Aerodactyl", 19: "Snorlax"
     }
 
 def get_starter():
-    randKey = random.randint(1,9)
-    return gen1_pokemon[randKey]
-    
+    randKey = random.randint(1,19)
+    return pokemon[randKey]
 
 class Pokemon:
     
     def __init__(
-        self, name, type1, type2, 
+        self, name, pkmnType, 
         health, attack, defense, speed, 
         ability1, ability2
         ):
         
         self.name = name
-        self.type1 = type1
-        self.type2 = type2
+        self.type = pkmnType
         self.health = health
         self.attack = attack
         self.defense = defense
@@ -36,26 +35,33 @@ class Pokemon:
         self.ability1 = ability1
         self.ability2 = ability2        
     
-    def type1(self):
-        pass
-    
 class Trainer:    
     def __init__(self, name, gender, money, pokemon):
         self.name = name
         self.gender = gender
         self.money = money
         self.pokemon = pokemon
+
+class Abilities:
+    def __init__(self, name, abilType, accuracy, damage, critChance):
+        self.name = name
+        self.type = abilType
+        self.accuracy = accuracy
+        self.damage = damage
+        self.critChance = critChance 
+        
+        
         
 trainer1 = Trainer(
     'Zack Rodgers', 
     'boy', 
-    random.randint(1,1000), 
+    100, 
     get_starter()
     )
 
 rival = Trainer(
     'Chris Nevile',
     'boy',
-    random.randint(1,1000), 
+    100, 
     get_starter()
     )
