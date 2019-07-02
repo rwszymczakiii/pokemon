@@ -17,9 +17,8 @@ class Trainer:
         starter = pkmn.pokemon[randKey]
         return starter
             
-    def __init__(self, name, gender):
+    def __init__(self, name):
         self.name = name
-        self.gender = gender
         self.money = self.startingMoney
         self.pokemon = self.get_starter()
         
@@ -29,5 +28,5 @@ class Trainer:
     def winBattle(self):
         self.money *= 1.125
             
-trainer1 = Trainer('Zack Rodgers', 'M')
-trainer2 = Trainer('Chris Nevile', 'M')
+trainer1 = Trainer('Zack Rodgers')
+trainer2 = Trainer('Chris Nevile')
