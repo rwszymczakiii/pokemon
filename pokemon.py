@@ -140,7 +140,7 @@ lickitung = Pokemon("Lickitung", "normal")
 chansey = Pokemon("Chansey", "normal")
 tangela = Pokemon("Tangela", "grass")
 kangaskhan = Pokemon("Kangaskhan", "normal")
-mrMime = Pokemon("Mr. Mime", "psychic")
+mr_mime = Pokemon("Mr. Mime", "psychic")
 scyther = Pokemon("Scyther", "bug", "flying")
 jynx = Pokemon("Jynx", "ice", "psychic")
 electabuzz = Pokemon("Electabuzz", "electric")
@@ -154,7 +154,7 @@ snorlax = Pokemon("Snorlax", "normal")
 
 pokemon = {
     1:farfetchd, 2:onix, 3:hitmonlee, 4:hitmonchan, 5:lickitung, 
-    6:chansey, 7:tangela, 8:kangaskhan, 9:mrMime, 10: scyther, 
+    6:chansey, 7:tangela, 8:kangaskhan, 9:mr_mime, 10: scyther, 
     11: jynx, 12: electabuzz, 13: magmar, 14: pinsir, 15: tauros,
     16: lapras, 17: porygon, 18: aerodactyl, 19: snorlax
     }

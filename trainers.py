@@ -10,16 +10,16 @@ import pokemon as pkmn
 
 class Trainer:    
     
-    startingMoney = 100
+    starting_money = 100
  
     def get_starter(self):
-        randKey = randint(1,19)
-        starter = pkmn.pokemon[randKey]
+        rand_key = randint(1,19)
+        starter = pkmn.pokemon[rand_key]
         return starter
             
     def __init__(self, name):
         self.name = name
-        self.money = self.startingMoney
+        self.money = self.starting_money
         self.pokemon = self.get_starter()
         
     def loseBattle(self):

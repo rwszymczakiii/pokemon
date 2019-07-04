@@ -10,11 +10,11 @@ import pokemon as pkmn
 
 class Ability:
     def __init__(
-        self, name, abilityType, accuracy=1, 
-        effect=None, damage=None, critChance=0
+        self, name, type_, accuracy=1, 
+        effect=None, damage=None, crit_chance=0
         ):
         self.name = name
-        self.type = abilityType
+        self.type = type_
         self.accuracy = accuracy
         self.effect = effect
         self.damage = damage
