@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jun 23 20:48:23 2019
-
-@author: rwszy
-"""
-
 #import abilities as abl
 
 class Pokemon:
