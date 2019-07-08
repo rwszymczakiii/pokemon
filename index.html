@@ -5,36 +5,41 @@
     <meta charset="UTF-8">
     <meta name="dedscription" content="generates palyer and pokemon data">
     <title>Pokemon Main Page</title>
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 
 <body>
     <header>
-        <h1> Hello there!</h1>
-        <h2>Welcome to the world of POKEMON!</h2>
+         <h1> Hello there!</h1>
+        <h2><img src="images/professorOak.png"> Welcome to the world of POKEMON!</h2>
     </header>
 
     <main>
-        <img src="images/professorOak.png">
-        <p>This world is inhabited by creatures called POKEMON!
-            <img src="images/nidorino-color.png">
-            For some people, POKEMON are pets. Others use them for fights.
-        </p> 
-
-        <form action="app.js" method="GET">
-            <label>First, what is your name? </label>
-            <img src="images/Red1.png">
-            <input type="text" name=""><input type="submit" name="ok!">
-            <p>Right! So your name is </p>
-            <p>This is my grandson.</p>
-            <img src="images/Blue1.png">
-            <p>He's been your rival since you were a baby. </p>
-            <p>...Erm, what is his name again?<input type="text" name=""><input type="submit" name="ok!"></p>
-            <p>That's right! I remember now! His name is </p>
-        </form>
-        <p>Your very own POKEMON legend is about to unfold! A world of dreams and adventures with POKEMON awaits! Let's go!</p>
+        <div class="div-not-game">
+            <p>This world is inhabited by creatures called POKEMON!
+                For some people, POKEMON are pets. Others use them for fights.
+            </p> 
+            <form id="form-names">
+                <div class="form-box">
+                    <div id="div-input-your-name">
+                        <label for="input-your-name">First, what is your name? </label>
+                        <input type="text" id="input-your-name"><input type="submit" id="submit-your-name">
+                    </div>
+                    <img src="images/Red1.png"> 
+                    <p>Right! So your name is </p>
+                </div>
+            </form>
+            <p>Your very own POKEMON legend is about to unfold! A world of dreams and adventures with POKEMON awaits! Let's go!</p>
+        </div>
+       <div class="div-game">
+            <img id="imgRival"src="images/Blue1.png">
+            <img id="imgPlayer"src="images/Red2.png">
+            <canvas id="game-screen" width="600" height="400"></canvas>
+       </div>
+    
     </main>
-<!-- <script src="app.js"></script> -->
-<script src="objects.js"></script>
+<script src="main.js"></script>
+<script src="game.js"></script>
 
 </body>
 

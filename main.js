@@ -67,8 +67,8 @@ class Pokemon {
         this.attack = 10;
         this.defense = 10;
         this.speed = 10;
-        this.ability1 = null;
-        this.ability2 = null;
+        this.ability1 = undefined;
+        this.ability2 = undefined;
         
         switch (this.type1) {
             case "normal":
@@ -138,8 +138,9 @@ class Pokemon {
         }
 
         switch (this.type2) {
-            case null:
+            case undefined:
                 this.ability2 = growl;
+                this.type2 = "None";
                 break;
             case "normal":
                 this.health ++;
@@ -257,5 +258,19 @@ const pokemon = {
     16: lapras, 17: porygon, 18: aerodactyl, 19: snorlax
 };
 
-let trainer1 = new Trainer("Chris");
-console.log(trainer1.starter.ability1.accuracy);
+// ---- html ----
+
+const init = function(){
+    document.getElementById("submit-your-name").addEventListener("click", createTrainer);
+};
+
+const createTrainer = function(ev){
+    ev.preventDefault();
+    trainer1 = document.getElementById("input-your-name").value;
+    document.getElementById("div-input-your-name").remove();
+    trainer1 = new Trainer(trainer1);
+    console.log(trainer1.starter);
+
+};
+
+document.addEventListener("DOMContentLoaded", init);

@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+header {
+  background: #24272E;
+  padding: 10px;
+  margin: 10px 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #f8f8f8
+}
+
+h2 {
+  color: #f8f8f8
+}
+
+.form-box {
+  margin: 10px 30%;
+  display: inline-block; 
+  text-align: center;
+}
+
+.div-not-game {
+  margin: 0px 23%;
+  display: inline-block; 
+  text-align: center;
+}
+
+#game-screen {
+  border: 1px solid black;
+  margin: 10px 30%;
+}
+
+#imgRival {
+  display: none;
+}
+
+#imgPlayer { 
+  display: none;
+}
