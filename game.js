@@ -3,29 +3,37 @@ class Player {
         this.gameWidth = game.gameWidth;
         this.gameHeight = game.gameHeight;
         this.width = 50;
-        this.height = 50;
+        this.height = 55;
         this.maxSpeed = 7;
-        this.speed = 0;
+        this.speedHorizontal = 0;
+        this.speedVertical = 0;
         this.image = document.getElementById("imgPlayer");
 
         this.position = {
             x: game.gameWidth / 2 - this.width / 2,
-            y: game.gameHeight - this.height - 10
+            y: game.gameHeight - this.height
         };
     }
 
     moveLeft() {
-        this.speed = - this.maxSpeed;
+        this.speedHorizontal = -this.maxSpeed;
     }
+
+    moveUp() {
+        this.speedVertical = -this.maxSpeed;
+    } 
 
     moveRight() {
-        this.speed = + this.maxSpeed;
+        this.speedHorizontal = + this.maxSpeed;
     }
 
-    //moveUp() {}
+    moveDown() {
+        this.speedVertical = + this.maxSpeed;
+    }
 
     stop() {
-        this.speed = 0;
+        this.speedHorizontal = 0;  
+        this.speedVertical = 0;
     }
 
     draw(context) {
@@ -33,10 +41,15 @@ class Player {
     } 
 
     update(deltaTime) {
-        this.position.x += this.speed;
-        if(this.position.x < 0) this.position.x = 0;
-        if(this.position.x + this.width > this.gameWidth) 
+        this.position.x += this.speedHorizontal;
+        if (this.position.x < 0) this.position.x = 0;
+        if (this.position.x + this.width > this.gameWidth) 
             this.position.x = this.gameWidth - this.width;
+        
+        this.position.y += this.speedVertical;
+        if (this.position.y < 0) this.position.y = 0;
+        if (this.position.y > this.gameHeight - this.height) 
+            this.position.y = this.gameHeight - this.height;
     }
 }
 
@@ -67,6 +80,8 @@ class Rival {
         if (this.position.y + this.height  > this.gameWidth || this.position.y < 0) {
             this.speed.y = -this.speed.y;
         }
+     /*   if (this.game.player.position.x + this.game.player.width < this.position.y + this.game.player.height);
+            this.speed.y = this.speed.x; */
     }
 }
 
@@ -74,7 +89,6 @@ class Game {
     constructor(gameWidth, gameHeight) {
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
-
     }
 
    start() {
@@ -85,8 +99,7 @@ class Game {
    }
 
     update(deltaTime) {
-        this.gameObjects.forEach(object => object.update(deltaTime));
-        
+        this.gameObjects.forEach(object => object.update(deltaTime));        
     }
 
     draw(context) {
@@ -97,27 +110,39 @@ class Game {
 class InputHandler {
     constructor(player, game) {
         document.addEventListener("keydown", event => {
+/*            var x = event.keyCode;
+            console.log(x);                 */
             switch(event.keyCode) {
-                case 37:
+                case 65:
                     player.moveLeft();
                     break;
-                case 39:
+                case 87:
+                    player.moveUp();
+                    break;
+                case 68:
                     player.moveRight();
+                    break;
+                case 83:
+                    player.moveDown();
                     break;
             }
         });
 
         document.addEventListener("keyup", event => {
             switch(event.keyCode) {
-                case 37:
-                    if(player.speed < 0)
-                        player.stop();
+                case 65:
+                    player.stop();
                     break;
-                case 39:
-                    if(player.speed > 0)
-                        player.stop();
+                case 87:
+                    player.stop();
                     break;
-            }
+                case 68:
+                    player.stop();
+                    break;
+                case 83:
+                    player.stop();
+                    break;
+            } 
         });
     }
 }

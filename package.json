@@ -1,0 +1,19 @@
+{
+  "name": "pokemon",
+  "version": "1.0.0",
+  "description": "test package for pokemon, not sure what this does lol",
+  "main": "main.js",
+  "scripts": {
+    "test": "idk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rwszymczakiii/pokemon.git"
+  },
+  "author": "me!",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rwszymczakiii/pokemon/issues"
+  },
+  "homepage": "https://github.com/rwszymczakiii/pokemon#readme"
+}
