@@ -61,8 +61,8 @@ class Rival {
         this.gameHeight = game.gameHeight;
         this.position = {x: 10, y: 10};
         this.speed = {x: 2, y: 1};
-        this.width = 50;
-        this.height = 250;
+        this.width = 45;
+        this.height = 55;
     }
 
     draw(context) {
@@ -77,11 +77,13 @@ class Rival {
             this.speed.x = -this.speed.x;
         }
 
-        if (this.position.y + this.height  > this.gameWidth || this.position.y < 0) {
+        if (this.position.y + this.height  > this.gameHeight || this.position.y < 0) {
             this.speed.y = -this.speed.y;
         }
-     /*   if (this.game.player.position.x + this.game.player.width < this.position.y + this.game.player.height);
-            this.speed.y = this.speed.x; */
+        if( this.position.y === this.game.player.position.y + this.game.player.height) 
+            this.speed.y = -this.speed.y;
+        if(this.position.x === this.game.player.position.x + this.game.player.width)
+            this.speed.x = -this.speed.x;
     }
 }
 
